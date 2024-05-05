@@ -7,7 +7,8 @@ const validate = (text) => {
     const checksum = text.substring(text.length - 4).toUpperCase();
 
     const hash = crc.computeCRC(data);
-    return hash === checksum;
+    const formatHash = hash.toString().padStart(4, '0');
+    return formatHash === checksum;
 };
 
 const read = (text, describe, tagId) => {
